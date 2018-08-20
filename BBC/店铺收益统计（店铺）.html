@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>店铺收益统计（店铺）</title>
+	<meta name="description" content="overview &amp; stats" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<!-- select + search -->
+	<link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
+	<link rel="stylesheet" href="assets/css/chosen.min.css" />
+	<!-- datepicker -->
+	<link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-timepicker.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+	<!-- table -->
+	<link rel="stylesheet" href="assets/css/ui.jqgrid.min.css" />
+	<!-- text fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+	<!-- ace styles -->
+	<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/layer/skin/default/layer.css" />
+	<link rel="stylesheet" type="text/css" href="assets/layer/skin/myskin/style.css" />
+	<!-- 自定义公共样式 -->
+	<link rel="stylesheet" type="text/css" href="static/css/public.css" />
+	<script src="assets/js/ace-extra.min.js"></script>
+	<!--[if lte IE 8]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body class="no-skin home">
+	<div id="navbar" class="navbar navbar-default ace-save-state">
+		<div class="navbar-container ace-save-state" id="navbar-container">
+			<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+				<span class="sr-only">Toggle sidebar</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="navbar-header navbar-logobox pull-left">
+				<a href="index.html" class="navbar-brand">
+					<small><i class="ico-logo"></i>资源平台</small>
+				</a>
+			</div>
+			<div class="navbar-buttons navbar-header pull-right" role="navigation">
+				<ul class="nav ace-nav">
+					<li class="dropdown-modal">
+						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+							<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+							<span>欢迎，xxx管理员</span>
+							<i class="ace-icon fa fa-caret-down"></i>
+						</a>
+
+						<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li><a href="#"><i class="ace-icon fa fa-cog"></i>修改密码</a></li>
+							<li><a href="#"><i class="ace-icon fa fa-cog"></i>查看资料</a></li>
+							<li><a href="#"><i class="ace-icon fa fa-power-off"></i>注销</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.loadState('main-container')}catch(e){}
+		</script>
+
+		<div id="sidebar" class="sidebar responsive ace-save-state">
+			<script type="text/javascript">
+				try{ace.settings.loadState('sidebar')}catch(e){}
+			</script>
+<!-- 左侧菜单栏 -->
+			<ul class="nav nav-list">
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-cubes"></i>
+						<span class="menu-text">
+							主数据管理
+							<span class="badge badge-primary">5</span>
+						</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>门店主数据</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>商品主数据</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>行政区域</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>销售组织</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺商品关系</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon ace-icon fa fa-users"></i>
+						<span class="menu-text">供应商管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商审核</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商商品关系</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商虚拟币管理</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商资源购买</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商申诉处理</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-crosshairs" style="font-size: 24px;"></i>
+						<span class="menu-text">资源管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品分类</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品标签</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品上下架</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>售卖规则管理</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>促销活动管理</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源库存配置</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-clipboard"></i>
+						<span class="menu-text">订单管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单审核</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单申诉处理</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-calculator"></i>
+						<span class="menu-text">提成结算管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-certificate"></i>
+						<span class="menu-text">虚拟币管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="open">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-male" style="font-size: 24px;"></i>
+						<span class="menu-text">资源业主管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺资源计划列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺资源计划执行</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺收益统计（平台）</a><b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺收益统计（店铺）</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺违规处罚</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon glyphicon glyphicon-wrench"></i>
+						<span class="menu-text">稽核管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon ace-icon fa fa-tachometer"></i>
+						<span class="menu-text">统计分析</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon glyphicon glyphicon-phone"></i>
+						<span class="menu-text">APP内容管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon ace-icon fa fa-cogs"></i>
+						<span class="menu-text">系统管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+<!-- 右侧内容 -->
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">首页</a>
+						</li>
+						<li>资源业主管理</li>
+						<li class="active">门店收益统计</li>
+					</ul>
+				</div>
+
+				<div class="page-content">
+					<div class="page-header" style="margin-bottom: 0;">
+						<span>门店收益统计</span>
+					</div>
+					<!-- 汇总统计 -->
+					<div class="main-count">
+						<div class="form-group">
+							<label>汇总统计：</label>
+						</div>
+						<div class="count-list">
+							<div class="c-item" onclick="detail01()">
+								<h3>本月待结算（虚拟币）</h3>
+								<p>10000</p>
+								<a href="javascript:;" >查看明细&nbsp;<i class="ace-icon fa fa-angle-double-right"></i></a>
+							</div>
+							<div class="c-item" onclick="detail02()">
+								<h3>本月需扣除（虚拟币）</h3>
+								<p>10000</p>
+								<a href="javascript:;" >查看明细&nbsp;<i class="ace-icon fa fa-angle-double-right"></i></a>
+							</div>
+							<div class="c-item" onclick="detail03()">
+								<h3>已累计收入（虚拟币）</h3>
+								<p>10000</p>
+								<a href="javascript:;" >查看明细&nbsp;<i class="ace-icon fa fa-angle-double-right"></i></a>
+							</div>
+							<div class="c-item" onclick="detail04()">
+								<h3>已累计收入（元）</h3>
+								<p>1000</p>
+								<a href="javascript:;" >查看详情&nbsp;<i class="ace-icon fa fa-angle-double-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- 资源位累计收益 -->
+					<div class="main-list">
+						<div class="form-group">
+							<h3>资源位累计收益：</h3>
+						</div>
+						<table class="tablebox table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>资源位名称</th>
+									<th>总成交虚拟币</th>
+									<th>已结算虚拟币</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- 分页区 -->
+						<div></div>
+					</div>
+				</div>
+
+				<!-- 待结算查看 -->
+				<div class="modal fade" id="dialog-detail01-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-editModal">
+		            <form class="form-horizontal">
+		                <div class="modal-dialog" style="width: 700px;">
+		                    <div class="modal-content">
+								<div class="modal-header">
+		                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                            <h4 class="modal-title">虚拟币明细</h4>
+		                        </div>
+
+								<div class="modal-body">
+									<!-- 搜索区 -->
+									<div class="main-search">
+										<p>
+											<b>开始时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<p>
+											<b>结束时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<p>
+											<b>收益状态</b>
+											<select>
+												<option value="">全部</option>
+											</select>
+										</p>
+										<div>
+											<button class="btn btn-warning pull-right" type="button">
+												<i class="ace-icon glyphicon glyphicon-search"></i>搜索
+											</button>
+										</div>
+									</div>
+									<!-- 列表区 -->
+									<div class="main-list">
+										<table class="tablebox table table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>资源位名称</th>
+													<th>数量</th>
+													<th>档期开始时</th>
+													<th>档期结束时</th>
+													<th>投放商品</th>
+													<th>售卖价格</th>
+													<th>分层收入</th>
+													<th>收益状态</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- 分页区 -->
+										<div></div>
+									</div>
+								</div>
+
+		                    	<div class="modal-footer center">
+		                    		<button type="button" class="btn btn-info btn-cancel" data-dismiss="modal">关闭</button>
+		                        </div>
+		                    </div>
+		                </div>
+		            </form>
+		        </div><!-- 待结算查看 -->
+
+		        <!-- 需扣除查看 -->
+				<div class="modal fade" id="dialog-detail02-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-editModal">
+		            <form class="form-horizontal">
+		                <div class="modal-dialog" style="width: 700px;">
+		                    <div class="modal-content">
+								<div class="modal-header">
+		                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                            <h4 class="modal-title">虚拟币扣除明细</h4>
+		                        </div>
+
+								<div class="modal-body">
+									<!-- 搜索区 -->
+									<div class="main-search">
+										<p>
+											<b>开始时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<p>
+											<b>结束时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<div>
+											<button class="btn btn-warning pull-right" type="button">
+												<i class="ace-icon glyphicon glyphicon-search"></i>搜索
+											</button>
+										</div>
+									</div>
+									<!-- 列表区 -->
+									<div class="main-list">
+										<table class="tablebox table table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>扣除原因</th>
+													<th>扣除数量</th>
+													<th>扣除时间</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- 分页区 -->
+										<div></div>
+									</div>
+								</div>
+
+		                    	<div class="modal-footer center">
+		                    		<button type="button" class="btn btn-info btn-cancel" data-dismiss="modal">关闭</button>
+		                        </div>
+		                    </div>
+		                </div>
+		            </form>
+		        </div><!-- 需扣除查看 -->
+
+		        <!-- 累计收入（虚拟币）明细 -->
+				<div class="modal fade" id="dialog-detail03-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-editModal">
+		            <form class="form-horizontal">
+		                <div class="modal-dialog" style="width: 700px;">
+		                    <div class="modal-content">
+								<div class="modal-header">
+		                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                            <h4 class="modal-title">虚拟币明细</h4>
+		                        </div>
+
+								<div class="modal-body">
+									<!-- 搜索区 -->
+									<div class="main-search">
+										<p>
+											<b>开始时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<p>
+											<b>结束时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<p>
+											<b>收益状态</b>
+											<select>
+												<option value="">全部</option>
+											</select>
+										</p>
+										<div>
+											<button class="btn btn-warning pull-right" type="button">
+												<i class="ace-icon glyphicon glyphicon-search"></i>搜索
+											</button>
+										</div>
+									</div>
+									<!-- 列表区 -->
+									<div class="main-list">
+										<table class="tablebox table table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>资源位名称</th>
+													<th>数量</th>
+													<th>档期开始时</th>
+													<th>档期结束时</th>
+													<th>投放商品</th>
+													<th>售卖价格</th>
+													<th>分层收入</th>
+													<th>收益状态</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- 分页区 -->
+										<div></div>
+									</div>
+								</div>
+
+		                    	<div class="modal-footer center">
+		                    		<button type="button" class="btn btn-info btn-cancel" data-dismiss="modal">关闭</button>
+		                        </div>
+		                    </div>
+		                </div>
+		            </form>
+		        </div><!-- 累计收入（虚拟币）明细 -->
+
+		        <!-- 收入金额详情 -->
+				<div class="modal fade" id="dialog-detail04-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-editModal">
+		            <form class="form-horizontal">
+		                <div class="modal-dialog" style="width: 700px;">
+		                    <div class="modal-content">
+								<div class="modal-header">
+		                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                            <h4 class="modal-title">资金收入明细</h4>
+		                        </div>
+
+								<div class="modal-body">
+									<!-- 搜索区 -->
+									<div class="main-search">
+										<p>
+											<b>开始时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<p>
+											<b>结束时间</b>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+										</p>
+										<div>
+											<button class="btn btn-warning pull-right" type="button">
+												<i class="ace-icon glyphicon glyphicon-search"></i>搜索
+											</button>
+										</div>
+									</div>
+									<!-- 列表区 -->
+									<div class="main-list">
+										<table class="tablebox table table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>序号</th>
+													<th>结算月份</th>
+													<th>结算时间</th>
+													<th>结算虚拟币</th>
+													<th>获得收入（元）</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- 分页区 -->
+										<div></div>
+									</div>
+								</div>
+
+		                    	<div class="modal-footer center">
+		                    		<button type="button" class="btn btn-info btn-cancel" data-dismiss="modal">关闭</button>
+		                        </div>
+		                    </div>
+		                </div>
+		            </form>
+		        </div><!-- 收入金额详情 -->
+			</div>
+		</div>
+	</div>
+
+	<!-- basic scripts -->
+	<script src="assets/js/jquery-2.1.4.min.js"></script>
+	<script src="assets/layer/layer.js"></script>
+	<script type="text/javascript">
+		if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- select + search -->
+	<script src="assets/js/chosen.jquery.min.js"></script>
+	<!-- datepicker -->
+	<script src="assets/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/bootstrap-datepicker.zh-CN.js"></script>
+	<script src="assets/js/bootstrap-timepicker.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/moment_zh-CN.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- table -->
+	<script src="assets/js/jquery.jqGrid.min.js"></script>
+	<script src="assets/js/grid.locale-en.js"></script>
+	<!-- ace -->
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+	<script type="text/javascript">
+		$('.date-picker').datepicker({
+			format: "yyyy-mm-dd",	//日期格式
+			language:"zh-CN" 		//语言设置
+        	
+		})
+		// 待结算明细
+		function detail01() {
+			$('#dialog-detail01-modal').modal();
+		}
+		//需扣除明细
+		function detail02() {
+			$('#dialog-detail02-modal').modal();
+		}
+		// 累计收入（虚拟币）明细
+		function detail03() {
+			$('#dialog-detail03-modal').modal();
+		}
+		// 收入金额详情
+		function detail04() {
+			$('#dialog-detail04-modal').modal();
+		}
+	</script>
+</body>
+</html>
