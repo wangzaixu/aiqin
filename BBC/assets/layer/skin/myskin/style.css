@@ -1,0 +1,3 @@
+body .layui-layer-page .layui-layer-content{padding: 20px;}
+body .layui-layer-page .layui-layer-title{background: #D0291F;color: #fff;font-size: 16px;}
+body .layui-layer-page .layui-layer-btn a{width: 120px;height: 40px;line-height: 38px;color: #fff;font-size: 16px;border:none;margin:0 30px; background:#D0291F; }

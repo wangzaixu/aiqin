@@ -1,0 +1,133 @@
+body{overflow-x: hidden;}
+
+.no-skin .nav-list>li.active>a{font-weight: normal;}
+/*.page-content{padding: 8px 0 24px 20px;}*/
+/*.main-content, body, html{min-height: initial;}*/
+
+.no-skin .sidebar,.no-skin .sidebar-toggle,.no-skin .sidebar-shortcuts-mini{
+	background-color:#10283b;
+}
+.no-skin .nav-list>li>a{
+	background-color:transparent;
+	color:#bfc5ca;
+}
+.no-skin .nav-list>li,.no-skin .sidebar-toggle{
+	border:0;
+}
+.no-skin .sidebar-toggle>.ace-icon{
+	background-color:#2d4557;
+	border-color:#193042;
+	color:#9ea9b1;
+}
+.sidebar .sidebar-toggle:before{
+	border-color:#193042;
+}
+.no-skin .nav-list .open>a, .no-skin .nav-list .open>a:focus, .no-skin .nav-list .open>a:hover{
+	background-color:#344e63 !important;
+	color:#bfc5ca !important;
+}
+.no-skin .nav-list>li .submenu>li>a,.no-skin .nav-list>li>a:focus{
+	background-color:#344e63;
+	color:#e7eaed;
+	border-top-color:#486075;
+}
+.no-skin .nav-list>li .submenu{
+	border-color:#486075;
+	background-color:transparent;
+}
+.no-skin .nav-list>li.active>a, .no-skin .nav-list>li.active>a:focus, .no-skin .nav-list>li.active>a:hover,.no-skin .nav-list>li>a:hover{
+	background-color:#2D6D9E;
+	color:#ffffff;
+}
+.no-skin .nav-list li.active>a:after{
+	border-color:transparent;
+}
+.no-skin .nav-list>li.active:after{
+	display:none;
+}
+.no-skin .sidebar-shortcuts{
+	background-color:#10283B;
+}
+.navbar{
+	background:#0083C0;
+}
+.no-skin .nav-list>li .submenu>li>a:hover{
+	background-color:#2E5573!important;
+	color:#ffffff!important;
+}
+.no-skin .nav-list>li .submenu>li.active:not(.open)>a,.no-skin .nav-list>li .submenu>li.active:not(.open)>a:hover{
+	background-color:#2D6D9E;
+	color:#ffffff!important; 
+}
+.no-skin .nav-list>li .submenu>li.active>a>.menu-icon{
+	color:#ffffff;
+}
+
+.no-skin .sidebar.menu-min .nav-list>li>a>.menu-text{
+	background-color:#2D6D9E;
+	color:#ffffff;
+}
+.no-skin .nav-list>li:hover>a{
+	background-color:#2D6D9E;
+	color:#ffffff;
+}
+.no-skin .sidebar.menu-min .nav-list>li>.submenu{
+	background-color:#23435C;
+}
+.sidebar.menu-min .nav-list>li.hover-show>.arrow{
+	display:none;
+}
+.no-skin .sidebar.menu-min .nav-list>li>.submenu,.no-skin .sidebar.menu-min .nav-list>li>a>.menu-text{
+	border:0;
+}
+.sidebar .sidebar-shortcuts-mini>.btn{
+	background-color:#3f5362 !important;
+	border-color:#3f5362 !important;
+}
+.sidebar .btn-success, .sidebar .btn-success.focus, .sidebar .btn-success:focus, .sidebar .btn-info, .sidebar .btn-info.focus, .sidebar .btn-info:focus, .sidebar .btn-warning, .sidebar .btn-warning.focus, .sidebar .btn-warning:focus, .sidebar .btn-danger, .sidebar .btn-danger.focus, .sidebar .btn-danger:focus{
+	background-color:#3f5362 !important;
+	border-color:#3f5362 !important;
+}
+.sidebar .btn-success:hover,.sidebar .btn-info:hover, .sidebar .btn-warning:hover, .sidebar .btn-danger:hover{
+	background-color:#36444e !important;
+	border-color:#36444e !important;
+}
+/*form-group里的提示文本 help-inline内容居中*/
+.help-inline{display: table-cell !important;padding: 7px 10px 7px !important;}
+/*form表单两列表单时布局*/
+.form-two-col{margin: 0;}
+@media (min-width: 768px){
+	.form-two-col{
+		margin: 0 60px;
+		margin-left: 30px;
+	}
+	
+}
+/*form表单中，form-control的容器*/
+.form-control-box{padding: 0 !important;}
+/*登陆页面-start*/
+html, .boz-login-layout, .boz-main-container, .boz-main-content, .boz-row, .boz-content-box{height: 100%;}
+.login-layout{background-color: #000;}
+.boz-content-box{position: relative;}
+.boz-login-container{position: absolute;right: 0;top: 50%;margin-top: -157px;}
+.logo-box{position: absolute;left: 0;top: 50%;margin-top: -270px;}
+.boz-header{color: #e2960c;border-bottom: 1px solid #f2f1ef;}
+
+/*简单表格修改*/
+.dataTables_wrapper.simple_table_wrapper .row:first-child {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #EFF3F8;
+    padding: 0;
+    background: transparent;
+}
+.dataTables_wrapper.simple_table_wrapper .row:last-child {
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #EFF3F8;
+    padding: 0;
+    border: none;
+}
+.dataTables_wrapper.simple_table_wrapper.simple_table_scrollwrapper .dataTables_scrollHead{overflow-y: scroll!important;}
+.dataTables_wrapper.simple_table_wrapper.simple_table_scrollwrapper .dataTables_scrollBody{overflow-y: scroll!important;}

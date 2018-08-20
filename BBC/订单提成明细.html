@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>订单提成明细</title>
+	<meta name="description" content="overview &amp; stats" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<!-- select + search -->
+	<link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
+	<link rel="stylesheet" href="assets/css/chosen.min.css" />
+	<!-- datepicker -->
+	<link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-timepicker.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+	<!-- table -->
+	<link rel="stylesheet" href="assets/css/ui.jqgrid.min.css" />
+	<!-- text fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+	<!-- ace styles -->
+	<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/layer/skin/default/layer.css" />
+	<link rel="stylesheet" type="text/css" href="assets/layer/skin/myskin/style.css" />
+	<!-- 自定义公共样式 -->
+	<link rel="stylesheet" type="text/css" href="static/css/public.css" />
+	<script src="assets/js/ace-extra.min.js"></script>
+	<!--[if lte IE 8]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body class="no-skin home">
+	<div id="navbar" class="navbar navbar-default ace-save-state">
+		<div class="navbar-container ace-save-state" id="navbar-container">
+			<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+				<span class="sr-only">Toggle sidebar</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="navbar-header navbar-logobox pull-left">
+				<a href="index.html" class="navbar-brand">
+					<small><i class="ico-logo"></i>资源平台</small>
+				</a>
+			</div>
+			<div class="navbar-buttons navbar-header pull-right" role="navigation">
+				<ul class="nav ace-nav">
+					<li class="dropdown-modal">
+						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+							<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+							<span>欢迎，xxx管理员</span>
+							<i class="ace-icon fa fa-caret-down"></i>
+						</a>
+
+						<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li><a href="#"><i class="ace-icon fa fa-cog"></i>修改密码</a></li>
+							<li><a href="#"><i class="ace-icon fa fa-cog"></i>查看资料</a></li>
+							<li><a href="#"><i class="ace-icon fa fa-power-off"></i>注销</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.loadState('main-container')}catch(e){}
+		</script>
+
+		<div id="sidebar" class="sidebar responsive ace-save-state">
+			<script type="text/javascript">
+				try{ace.settings.loadState('sidebar')}catch(e){}
+			</script>
+<!-- 左侧菜单栏 -->
+			<ul class="nav nav-list">
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-cubes"></i>
+						<span class="menu-text">
+							主数据管理
+							<span class="badge badge-primary">5</span>
+						</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺主数据</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>商品主数据</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>行政区域</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>销售组织</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺商品关系</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon ace-icon fa fa-users"></i>
+						<span class="menu-text">供应商管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商审核</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商商品关系</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商虚拟币管理</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商资源购买</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>供应商申诉处理</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-crosshairs" style="font-size: 24px;"></i>
+						<span class="menu-text">资源管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品分类</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品标签</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源商品上下架</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>售卖规则管理</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>促销活动管理</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>资源库存配置</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-clipboard"></i>
+						<span class="menu-text">订单管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单审核</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单申诉处理</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="open">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-calculator"></i>
+						<span class="menu-text">提成结算管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>提成规则</a><b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>订单提成明细</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>月度资源店铺结算报表</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-certificate"></i>
+						<span class="menu-text">虚拟币管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-male" style="font-size: 24px;"></i>
+						<span class="menu-text">资源业主管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺资源计划列表</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺资源计划执行</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺收益统计（平台）</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺收益统计（店铺）</a><b class="arrow"></b>
+						</li>
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>店铺违规处罚</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon glyphicon glyphicon-wrench"></i>
+						<span class="menu-text">稽核管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon ace-icon fa fa-tachometer"></i>
+						<span class="menu-text">统计分析</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon glyphicon glyphicon-phone"></i>
+						<span class="menu-text">APP内容管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon ace-icon fa fa-cogs"></i>
+						<span class="menu-text">系统管理</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="">
+							<a href=""><i class="menu-icon fa fa-caret-right"></i>xxx</a><b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+<!-- 右侧内容 -->
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">首页</a>
+						</li>
+						<li>提成结算管理</li>
+						<li class="active">订单提成明细</li>
+					</ul>
+				</div>
+
+				<div class="page-content">
+					<div class="page-header">
+						<span>订单提成明细</span>
+					</div>
+				<!-- 搜索区 -->
+					<div class="main-search">
+						<p>
+							<b>订单成交时间</b>
+							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" style="width: 28%;cursor: pointer;">
+
+							<span class="pull-left center" style="width: 4%;line-height: 30px;"> - </span>
+
+							<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" style="width: 28%;cursor: pointer;">
+						</p>
+						<p>
+							<b>提成结算类型</b>
+							<select>
+								<option value="">全部</option>
+							</select>
+						</p>
+						<div>
+							<button class="btn btn-warning pull-right" type="button">
+								<i class="ace-icon glyphicon glyphicon-search"></i>搜索
+							</button>
+						</div>
+					</div>
+				<!-- 列表区 -->
+					<div class="main-list">
+						<table class="tablebox table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>订单编号</th>
+									<th>订单成交虚拟币</th>
+									<th>成交时间</th>
+									<th>提成结算类型</th>
+									<th>业主应获虚拟币</th>
+									<th>平台应提成虚拟币</th>
+									<th>平台提成状态</th>
+									<th>提成时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- 分页区 -->
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- basic scripts -->
+	<script src="assets/js/jquery-2.1.4.min.js"></script>
+	<script src="assets/layer/layer.js"></script>
+	<script type="text/javascript">
+		if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- select + search -->
+	<script src="assets/js/chosen.jquery.min.js"></script>
+	<!-- datepicker -->
+	<script src="assets/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/bootstrap-datepicker.zh-CN.js"></script>
+	<script src="assets/js/bootstrap-timepicker.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/moment_zh-CN.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- table -->
+	<script src="assets/js/jquery.jqGrid.min.js"></script>
+	<script src="assets/js/grid.locale-en.js"></script>
+	<!-- ace -->
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.date-picker').datepicker({
+				format: "yyyy-mm-dd",	//日期格式
+				language:"zh-CN" 		//语言设置
+			})
+		});
+	</script>
+</body>
+</html>
